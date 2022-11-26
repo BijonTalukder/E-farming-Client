@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Login = () => {
+    const {login}=useContext(AuthContext)
+    const handleLogin=(event)=>{
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        login(email,password)
+        .then(res=>{
+            const user=res.user;
+            console.log(user)
+            
+            form.reset()
+        })
+        .catch(error=>console.error(error))
+    }
     return (
         <div>
 
@@ -22,7 +38,7 @@ const Login = () => {
            
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-              <form  className="card-body">
+              <form onSubmit={handleLogin} className="card-body">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>

@@ -1,7 +1,15 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 const Register = () => {
+    const {createUser,updateUser,googleProvider} = useContext(AuthContext) 
+    const navigate=useNavigate()
+    const location=useLocation();
+    const from=location.state?.from?.pathname || '/';
+    const providergoogle=new GoogleAuthProvider();
     const handleRegistation = event => {
         event.preventDefault()
         const form = event.target;
@@ -10,6 +18,67 @@ const Register = () => {
         const password = form.password.value;
         const type= form.type.value;
         console.log(name,email,password,type)
+        createUser(email,password)
+        .then(res=>{
+            const user=res.user;
+            console.log(user)
+            
+           
+            const userInfo={
+                displayName:name,
+                type
+            }
+            form.reset()
+            
+
+            
+
+            
+            updateUser(userInfo)
+            .then(res=>{
+                // const user=res.user;
+                // console.log(user)
+                saveUser(email,name,type)
+               
+                
+
+            })
+            .catch(error=>console.error(error))
+         
+
+
+        })
+        .catch(error=>console.error(error))
+
+
+        const saveUser=(email,name,type)=>{
+            const user={
+                email,
+                name,
+                type
+            }
+
+            fetch('http://localhost:5000/users',{
+                method:'POST',
+                headers:{
+                    'content-type':'application/json'
+                },
+                body:JSON.stringify(user)
+            })
+            .then(res=>res.json())
+            .then(data=>console.log(data))
+         
+        }
+
+    }
+    const  handleGoogle=()=>{
+        googleProvider(providergoogle)
+        .then(result=>{
+            const user=result.user;
+            navigate(from,{replace: true})
+        })
+        .catch(error=>console.error(error))
+
     }
     return (
         <div className="hero min-h-screen bg-base-200">
@@ -24,7 +93,7 @@ const Register = () => {
 
                     </div>
 
-                    <Link to='/register' className="btn btn-outline btn-success mt-3">Create New Account</Link>
+                    <Link to='/login' className="btn btn-outline btn-success mt-3">Already sign in</Link>
 
 
                 </div>
@@ -60,6 +129,7 @@ const Register = () => {
                             <button type='submit' className="btn btn-primary">Register</button>
                         </div>
                     </form>
+                    <button onClick={handleGoogle} className="btn btn-outline btn-success mt-3">Continue with google</button>
                 </div>
             </div>
         </div>

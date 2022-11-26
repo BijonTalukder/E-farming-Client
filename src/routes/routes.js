@@ -1,3 +1,5 @@
+import DeshBoard from "../DeshBoard/DeshBoard";
+import DeshboadLayout from "../layout/DeshboadLayout";
 import Category from "../Pages/Home/Categories/Category";
 import Login from "../Pages/Signin/Login/Login";
 import Register from "../Pages/Signin/Register/Register";
@@ -32,5 +34,15 @@ export const routes=createBrowserRouter([
             }
         ]
 
+    },
+    {
+        path:'/deshboard',
+        element:<DeshboadLayout></DeshboadLayout>,
+        children:[
+            {
+              path:'/deshboard',
+              element:<DeshBoard></DeshBoard>
+            }
+        ]
     }
 ])

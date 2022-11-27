@@ -15,6 +15,7 @@ const useAdmin=email=>{
         }
     },[email])
     return [isAdmin]
+
 }
 
 export default useAdmin;

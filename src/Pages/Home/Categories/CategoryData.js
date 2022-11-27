@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CategoryData = ({data}) => {
+const CategoryData = ({data,setBooked}) => {
     const {name,img,sallerName,location,rePrice,orPrice,usetime,time} = data;
     console.log(data.length)
     return (
@@ -18,7 +18,7 @@ const CategoryData = ({data}) => {
 
     </div>
     <div className="card-actions justify-end">
-    <label htmlFor="my-modal-3" className="btn">Buy Now</label>
+    <label htmlFor="my-modal-3" onClick={()=>setBooked(data)}  className="btn">Buy Now</label>
 
      
 

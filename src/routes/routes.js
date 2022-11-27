@@ -3,6 +3,7 @@ import DeshboadLayout from "../layout/DeshboadLayout";
 import Category from "../Pages/Home/Categories/Category";
 import Login from "../Pages/Signin/Login/Login";
 import Register from "../Pages/Signin/Register/Register";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
@@ -36,11 +37,11 @@ export const routes=createBrowserRouter([
 
     },
     {
-        path:'/deshboard',
-        element:<DeshboadLayout></DeshboadLayout>,
+        path:'/dashboard',
+        element:<PrivateRoute><DeshboadLayout></DeshboadLayout></PrivateRoute>,
         children:[
             {
-              path:'/deshboard',
+              path:'/dashboard',
               element:<DeshBoard></DeshBoard>
             }
         ]

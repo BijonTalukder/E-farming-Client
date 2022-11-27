@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const NavBar = () => {
+  const {logOut,user} = useContext(AuthContext);
     return (
         <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -13,8 +15,20 @@ const NavBar = () => {
        
       
         <li><Link to='/'>Home</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/register'>Register</Link></li>
+        {
+          user && user.uid? <>
+      
+          <li><Link to="/dashboard">Dashboard</Link></li>
+          <button onClick={logOut}>LogOut</button>
+          
+          </> :
+          <>
+                 <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/register'>Register</Link></li>
+          </>
+
+        }
+       
       </ul>
     </div>
     <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
@@ -22,8 +36,20 @@ const NavBar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
     <li><Link to='/'>Home</Link></li>
-        <li><Link to='/login'>Login</Link></li>
-        <li><Link to='/register'>Register</Link></li>
+    {
+          user && user.uid? <>
+          
+          <li><Link to="/dashboard">Dashboard</Link></li>
+          <button onClick={logOut}>LogOut</button>
+          
+          </> :
+          <>
+                 <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/register'>Register</Link></li>
+          </>
+
+        }
+    
     </ul>
   </div>
   <div className="navbar-end">

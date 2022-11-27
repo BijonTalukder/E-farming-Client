@@ -14,13 +14,15 @@ const BookingModal = ({booked}) => {
     const email=form.email.value;
     const phone=form.phone.value;
     const location =form.location.value;
+    const price=form.price.value;
     console.log(name,email,phone,location)
     const bookedDatabase={
       itemName:booked.name,
       name,
       email,
       phone,
-      location
+      location,
+      price
       
     }
     fetch('http://localhost:5000/booking',{
@@ -52,6 +54,8 @@ const BookingModal = ({booked}) => {
             <input name='name' defaultValue={user?.displayName} type="text" placeholder="Name" className="input input-bordered w-full max-w-xs" />
             <input type='email' defaultValue={user?.email} name='email' placeholder="email" className="input input-bordered w-full max-w-xs" />
             <input type="text" name='phone' placeholder="phone" className="input input-bordered w-full max-w-xs" />
+            <input type="text" name='price' defaultValue={booked.rePrice} placeholder="Price" className="input input-bordered w-full max-w-xs" />
+
             <input type="text" name='location' placeholder="location" className="input input-bordered w-full max-w-xs" />
             <button className="input input-bordered w-full max-w-sm" type='submit'>Submit</button>
           </form>

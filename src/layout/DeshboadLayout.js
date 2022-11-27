@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
 import NavBar from '../NavBar/NavBar';
 
 const DeshboadLayout = () => {
+  const { user } = useContext(AuthContext)
+    const [isAdmin]=useAdmin(user?.email)
     return (
         <div>
             <NavBar></NavBar>
@@ -15,9 +19,12 @@ const DeshboadLayout = () => {
   <div className="drawer-side">
     <label htmlFor="DeshBoard-drawer-2" className="drawer-overlay"></label> 
     <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+      {
+        isAdmin && <>
+        <li>all user</li>
+        </>
+      }
 
-      <li><a>Sidebar Item 1</a></li>
-      <li><a>Sidebar Item 2</a></li>
     </ul>
   
   </div>

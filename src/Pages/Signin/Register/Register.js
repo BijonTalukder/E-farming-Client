@@ -16,8 +16,8 @@ const Register = () => {
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const type= form.type.value;
-        console.log(name,email,password,type)
+        const role= form.type.value;
+        console.log(name,email,password,role)
         createUser(email,password)
         .then(res=>{
             const user=res.user;
@@ -26,7 +26,7 @@ const Register = () => {
            
             const userInfo={
                 displayName:name,
-                type
+                role
             }
             form.reset()
             
@@ -38,7 +38,7 @@ const Register = () => {
             .then(res=>{
                 // const user=res.user;
                 // console.log(user)
-                saveUser(email,name,type)
+                saveUser(email,name,role)
                
                 
 
@@ -51,11 +51,11 @@ const Register = () => {
         .catch(error=>console.error(error))
 
 
-        const saveUser=(email,name,type)=>{
+        const saveUser=(email,name,role)=>{
             const user={
                 email,
                 name,
-                type
+                role
             }
 
             fetch('http://localhost:5000/users',{
@@ -107,8 +107,9 @@ const Register = () => {
                         </div>
                         <select name='type' className="select select-bordered w-full max-w-xs">
                             
-                            <option selected value='Buyer'>Buyer</option>
+                            <option selected value='buyer'>Buyer</option>
                             <option value='saller'> Saller</option>
+                            <option value='admin'> admin</option>
                         </select>
                         <div className="form-control">
                             <label className="label">

@@ -59,7 +59,7 @@ const Register = () => {
                 role
             }
 
-            fetch('http://localhost:5000/users',{
+            fetch('https://used-products-resale-server-bijontalukder.vercel.app/users',{
                 method:'POST',
                 headers:{
                     'content-type':'application/json'
@@ -110,7 +110,7 @@ const Register = () => {
                             
                             <option selected value='buyer'>Buyer</option>
                             <option value='saller'> Saller</option>
-                            <option value='admin'> admin</option>
+                            
                         </select>
                         <div className="form-control">
                             <label className="label">

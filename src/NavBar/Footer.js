@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="footer p-10 my-8 bg-neutral text-neutral-content">
         <div>
           {/* <img className='h-[50px]' src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/800px-Book-icon-bible.png' alt=''  /> */}
-          <p>Copyright © 2022 - All right reserved by BT Teaching Home</p>
+          <p>Copyright © 2022 - All right reserved by FlowByte</p>
         </div> 
         <div>
           <span className="footer-title">Social</span> 

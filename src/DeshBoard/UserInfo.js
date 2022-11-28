@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const UserInfo = () => {
     const [usersInfo, setUsersInfo] = useState({})
     useEffect(() => {
-        fetch('http://localhost:5000/alluser')
+        fetch('https://used-products-resale-server-bijontalukder.vercel.app/alluser')
             .then(res => res.json())
             .then(data => setUsersInfo(data))
     },[])

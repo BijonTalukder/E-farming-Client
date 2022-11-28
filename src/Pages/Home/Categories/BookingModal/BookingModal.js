@@ -25,7 +25,7 @@ const BookingModal = ({booked}) => {
       price
       
     }
-    fetch('http://localhost:5000/booking',{
+    fetch('https://used-products-resale-server-bijontalukder.vercel.app/booking',{
       method:'POST',
       headers:{
         'content-type':'application/json'

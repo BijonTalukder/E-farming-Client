@@ -8,7 +8,7 @@ const DeshBoard = () => {
     // const []=useAdmin()
     useEffect(() => {
 
-        fetch(`http://localhost:5000/booking?email=${user?.email}`)
+        fetch(`https://used-products-resale-server-bijontalukder.vercel.app/booking?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setOrder(data))
 

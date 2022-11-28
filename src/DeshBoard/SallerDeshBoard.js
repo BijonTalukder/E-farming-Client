@@ -63,7 +63,7 @@ const SallerDeshBoard = () => {
             
                     }
                     console.log(products)
-                    fetch('http://localhost:5000/category', {
+                    fetch('https://used-products-resale-server-bijontalukder.vercel.app/category', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json'
@@ -103,7 +103,7 @@ const SallerDeshBoard = () => {
 
         // }
         // console.log(products)
-        // fetch('http://localhost:5000/category', {
+        // fetch('https://used-products-resale-server-bijontalukder.vercel.app/category', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'

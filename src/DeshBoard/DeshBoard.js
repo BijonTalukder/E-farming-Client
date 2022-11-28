@@ -5,7 +5,7 @@ import useAdmin from '../hooks/useAdmin';
 const DeshBoard = () => {
     const [orders, setOrder] = useState([])
     const { user } = useContext(AuthContext)
-    const []=useAdmin()
+    // const []=useAdmin()
     useEffect(() => {
 
         fetch(`http://localhost:5000/booking?email=${user?.email}`)

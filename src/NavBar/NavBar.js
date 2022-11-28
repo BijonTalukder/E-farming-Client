@@ -1,9 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
 
 const NavBar = () => {
   const {logOut,user} = useContext(AuthContext);
+  // const [isAdmin]=useAdmin(user?.email)
+  const [type] = useAdmin(user?.email)
+  console.log(type)
     return (
         <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -18,7 +22,7 @@ const NavBar = () => {
         {
           user && user.uid? <>
       
-          <li><Link to="/dashboard">Dashboard</Link></li>
+         
           <button onClick={logOut}>LogOut</button>
           
           </> :
@@ -26,7 +30,17 @@ const NavBar = () => {
                  <li><Link to='/login'>Login</Link></li>
                 <li><Link to='/register'>Register</Link></li>
           </>
+          
 
+        }
+        {
+         type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
+        }
+        {
+         type.role==='saller' && <li><Link to='/sallerdeshboard'> DeshBoard </Link></li>
+        }
+          {
+         type.role==='buyer'  && <li><Link to="/dashboard">Deshboard</Link></li>
         }
        
       </ul>
@@ -36,10 +50,10 @@ const NavBar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
     <li><Link to='/'>Home</Link></li>
-    {
+        {
           user && user.uid? <>
-          
-          <li><Link to="/dashboard">Dashboard</Link></li>
+      
+         
           <button onClick={logOut}>LogOut</button>
           
           </> :
@@ -47,8 +61,19 @@ const NavBar = () => {
                  <li><Link to='/login'>Login</Link></li>
                 <li><Link to='/register'>Register</Link></li>
           </>
+          
 
         }
+        {
+         type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
+        }
+        {
+         type.role==='saller' && <li><Link to='/sallerdeshboard'> DeshBoard </Link></li>
+        }
+        {
+         type.role==='buyer' && <li><Link to="/dashboard">Dashboard</Link></li>
+        }
+       
     
     </ul>
   </div>

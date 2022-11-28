@@ -1,4 +1,7 @@
 import DeshBoard from "../DeshBoard/DeshBoard";
+import AdminDeshBoard from "../DeshBoard/AdminDeshBoard";
+import SallerDeshBoard from "../DeshBoard/SallerDeshBoard";
+
 import DeshboadLayout from "../layout/DeshboadLayout";
 import Category from "../Pages/Home/Categories/Category";
 import Login from "../Pages/Signin/Login/Login";
@@ -37,13 +40,63 @@ export const routes=createBrowserRouter([
 
     },
     {
+        
         path:'/dashboard',
         element:<PrivateRoute><DeshboadLayout></DeshboadLayout></PrivateRoute>,
         children:[
             {
               path:'/dashboard',
               element:<DeshBoard></DeshBoard>
-            }
+            },
+            // // {
+            // //     path:'/admindeshboard',
+            // //     element:<AdminDeshBoard></AdminDeshBoard>
+            // //  },
+            //  {
+            //     path:'/sallerdeshboard',
+            //     element:<SallerDeshBoard></SallerDeshBoard>
+            //   }
+
         ]
+    },
+    {
+        path:'/admindeshboard',
+        element:<PrivateRoute><AdminDeshBoard></AdminDeshBoard></PrivateRoute>,
+        children:[
+            // {
+            //   path:'/dashboard',
+            //   element:<DeshBoard></DeshBoard>
+            // },
+            {
+                path:'/admindeshboard',
+                element:<AdminDeshBoard></AdminDeshBoard>
+             }
+            //  {
+            //     path:'/sallerdeshboard',
+            //     element:<SallerDeshBoard></SallerDeshBoard>
+            //   }
+
+        ]
+
+    },
+    {
+        path:'/sallerdeshboard',
+        element:<PrivateRoute><SallerDeshBoard></SallerDeshBoard></PrivateRoute>,
+        children:[
+            // {
+            //   path:'/dashboard',
+            //   element:<DeshBoard></DeshBoard>
+            // },
+            // {
+            //     path:'/admindeshboard',
+            //     element:<AdminDeshBoard></AdminDeshBoard>
+            //  }
+             {
+                path:'/sallerdeshboard',
+                element:<SallerDeshBoard></SallerDeshBoard>
+              }
+
+        ]
+
     }
 ])

@@ -36,7 +36,11 @@ export const routes=createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
-            }
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
+            },
         ]
 
     },
@@ -100,10 +104,7 @@ export const routes=createBrowserRouter([
         ]
 
     },
-    {
-        path:'/blog',
-        element:<Blog></Blog>
-    },
+   
     {
         path:'*',
         element: <div>

@@ -49,10 +49,10 @@ const BookingModal = ({booked}) => {
           <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
           <h3 className="text-lg font-bold">Congratulations</h3>
           <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3'>
-            <input type="text" placeholder="Type here" value={booked.name} className="input input-bordered w-full max-w-xs" />
+            <input type="text" disabled placeholder="Type here" value={booked.name} className="input input-bordered w-full max-w-xs" />
            
-            <input name='name' defaultValue={user?.displayName} type="text" placeholder="Name" className="input input-bordered w-full max-w-xs" />
-            <input type='email' defaultValue={user?.email} name='email' placeholder="email" className="input input-bordered w-full max-w-xs" />
+            <input name='name' disabled defaultValue={user?.displayName} type="text" placeholder="Name" className="input input-bordered w-full max-w-xs" />
+            <input type='email' disabled defaultValue={user?.email} name='email' placeholder="email" className="input input-bordered w-full max-w-xs" />
             <input type="text" name='phone' placeholder="phone" className="input input-bordered w-full max-w-xs" />
             <input type="text" name='price' defaultValue={booked.rePrice} placeholder="Price" className="input input-bordered w-full max-w-xs" />
 

@@ -2,6 +2,7 @@
 # Prject Name : Flow Byte
 # Live Link : (https://flowbyte-636bb.web.app)
 # This is used product resale e-commerce site this site have 3 type user like user buyer admin .hare user can added or buy product and see her dashboard ,and again see added product in her deshboard ,saller can add new product .and admin see all type of user
+
 # This is MERN Stack project 
 # admin mail(Admin Email: p1@gmail.com) and  (Admin pass: 1234567)
 

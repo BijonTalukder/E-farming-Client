@@ -20,7 +20,7 @@ const DeshboadLayout = () => {
         <div className="drawer-side">
           <label htmlFor="DeshBoard-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-            <li>hi</li>
+            {/* <li>hi</li> */}
             {
               // isAdmin && <>
               // <li>all user</li>

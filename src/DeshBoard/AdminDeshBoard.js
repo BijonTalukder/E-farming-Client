@@ -1,40 +1,48 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link, Outlet } from 'react-router-dom';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import useAdmin from '../hooks/useAdmin';
 import NavBar from '../NavBar/NavBar';
+import UserInfo from './UserInfo';
 
 const AdminDeshBoard = () => {
+    const { user } = useContext(AuthContext);
+
     return (
         <div>
-            <NavBar></NavBar>
+            {/* <UserInfo></UserInfo> */}
+            
+                
 
-        <div className="overflow-x-auto">
-            <table className="table table-zebra w-full">
+            
+            {/* <NavBar></NavBar>
+            <div className="overflow-x-auto">
+                <table className="table table-zebra w-full">
 
-                <thead>
-                    <tr>
-                        <th>Number</th>
-                        <th>Name</th>
-                        <th>Item Name</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
+                    <thead>
+                        <tr>
+                            <th>Number</th>
+                            <th>Name</th>
+                            <th>Role</th>
 
-                   {/* {
-                    orders.map((order,index)=> <tr>
-                        <th>{index+1}</th>
-                        <td>{order.name}</td>
-                        <td>{order.itemName}</td>
-                        <td>{order.price}</td>
-                    </tr>
-)
-                   } */}
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {
+                        users.map(user=>console.log(user))
+                     
+                    }
 
-                </tbody>
-            </table>
+                    
+                     
+
+                    </tbody>
+                </table>
+            </div> */}
+
+
+
         </div>
-
-    </div>
     );
 };
 

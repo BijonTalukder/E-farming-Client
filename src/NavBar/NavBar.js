@@ -19,7 +19,18 @@ const NavBar = () => {
        
       
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/blog'>Blog</Link></li>
+       
         {
+         type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
+        }
+        {
+         type.role==='saller' && <li><Link to='/sallerdeshboard'> DeshBoard </Link></li>
+        }
+       {
+         type.role==='buyer'  && <li><Link to="/dashboard">Deshboard</Link></li>
+        }
+         {
           user && user.uid? <>
       
          
@@ -32,15 +43,6 @@ const NavBar = () => {
           </>
           
 
-        }
-        {
-         type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
-        }
-        {
-         type.role==='saller' && <li><Link to='/sallerdeshboard'> DeshBoard </Link></li>
-        }
-          {
-         type.role==='buyer'  && <li><Link to="/dashboard">Deshboard</Link></li>
         }
        
       </ul>
@@ -50,7 +52,18 @@ const NavBar = () => {
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
     <li><Link to='/'>Home</Link></li>
+    <li><Link to='/blog'>Blog</Link></li>
+       {
+         type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
+        }
+
         {
+         type.role==='saller' && <li><Link to='/sallerdeshboard'> DeshBoard </Link></li>
+        }
+        {
+         type.role==='buyer' && <li><Link to="/dashboard">Dashboard</Link></li>
+        }
+         {
           user && user.uid? <>
       
          
@@ -64,22 +77,11 @@ const NavBar = () => {
           
 
         }
-        {
-         type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
-        }
-        {
-         type.role==='saller' && <li><Link to='/sallerdeshboard'> DeshBoard </Link></li>
-        }
-        {
-         type.role==='buyer' && <li><Link to="/dashboard">Dashboard</Link></li>
-        }
        
     
     </ul>
   </div>
-  <div className="navbar-end">
-    <a className="btn">Get started</a>
-  </div>
+  
 </div>
     );
 };

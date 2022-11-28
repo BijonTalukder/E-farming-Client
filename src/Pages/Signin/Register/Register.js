@@ -31,7 +31,8 @@ const Register = () => {
             form.reset()
             
 
-            
+        
+            navigate(from,{replace: true})
 
             
             updateUser(userInfo)

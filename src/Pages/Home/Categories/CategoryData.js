@@ -4,7 +4,7 @@ const CategoryData = ({data,setBooked}) => {
     const {name,img,sallerName,location,rePrice,orPrice,usetime,time} = data;
     console.log(data.length)
     return (
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="my-4 card w-96 bg-base-100 shadow-xl">
   <figure><img className='max-h-56' src={img} alt="mobile" /></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>

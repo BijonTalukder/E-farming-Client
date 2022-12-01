@@ -7,15 +7,16 @@ import UserInfo from './UserInfo';
 
 const AdminDeshBoard = () => {
     const { user } = useContext(AuthContext);
+    const [usersInfo, setUsersInfo] = useState([])
+    useEffect(() => {
+        fetch('https://used-products-resale-server-bijontalukder.vercel.app/alluser')
+            .then(res => res.json())
+            .then(data => setUsersInfo(data))
+    },[])
 
     return (
         <div>
-            {/* <UserInfo></UserInfo> */}
-            
-                
-
-            
-            {/* <NavBar></NavBar>
+            {/* <NavBar></NavBar> */}
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
 
@@ -29,7 +30,13 @@ const AdminDeshBoard = () => {
                     </thead>
                     <tbody>
                     {
-                        users.map(user=>console.log(user))
+                        usersInfo.map((user,index)=><tr>
+                             <td>{index+1}</td>
+                            <td>{user.name}</td>
+                            <td>{user.role}</td>
+
+
+                        </tr>)
                      
                     }
 
@@ -38,7 +45,7 @@ const AdminDeshBoard = () => {
 
                     </tbody>
                 </table>
-            </div> */}
+            </div>
 
 
 

@@ -8,6 +8,8 @@ import Login from "../Pages/Signin/Login/Login";
 import Register from "../Pages/Signin/Register/Register";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import Blog from "../Blog/Blog";
+import Payment from "../DeshBoard/Payment";
+import MyProduct from "../DeshBoard/MyProduct";
 
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Main } = require("../layout/Main");
@@ -45,67 +47,48 @@ export const routes=createBrowserRouter([
 
     },
     {
+        path:'/payment/:id',
+        element:<Payment></Payment>
+
+    },
+    {
         
         path:'/dashboard',
-        element:<PrivateRoute><DeshboadLayout></DeshboadLayout></PrivateRoute>,
+        element:<PrivateRoute><DeshboadLayout></DeshboadLayout></PrivateRoute> ,
         children:[
             {
-              path:'/dashboard',
+              path:'/dashboard/user',
               element:<DeshBoard></DeshBoard>
             },
-            // // {
-            // //     path:'/admindeshboard',
-            // //     element:<AdminDeshBoard></AdminDeshBoard>
-            // //  },
-            //  {
-            //     path:'/sallerdeshboard',
-            //     element:<SallerDeshBoard></SallerDeshBoard>
-            //   }
-
-        ]
-    },
-    {
-        path:'/admindeshboard',
-        element:<PrivateRoute><AdminDeshBoard></AdminDeshBoard></PrivateRoute>,
-        children:[
-            // {
-            //   path:'/dashboard',
-            //   element:<DeshBoard></DeshBoard>
-            // },
             {
-                path:'/admindeshboard',
+                path:'/dashboard/admindeshboard',
                 element:<AdminDeshBoard></AdminDeshBoard>
-             }
-            //  {
-            //     path:'/sallerdeshboard',
-            //     element:<SallerDeshBoard></SallerDeshBoard>
-            //   }
-
-        ]
-
-    },
-    {
-        path:'/sallerdeshboard',
-        element:<PrivateRoute><SallerDeshBoard></SallerDeshBoard></PrivateRoute>,
-        children:[
-            // {
-            //   path:'/dashboard',
-            //   element:<DeshBoard></DeshBoard>
-            // },
-            // {
-            //     path:'/admindeshboard',
-            //     element:<AdminDeshBoard></AdminDeshBoard>
-            //  }
+             },
              {
-                path:'/sallerdeshboard',
+                path:'/dashboard/addproduct',
                 element:<SallerDeshBoard></SallerDeshBoard>
-              }
+              },
+              {
+              path:'/dashboard/myproduct',
+              element:<MyProduct></MyProduct>
+            },
+            {
+                path:'user/payment/:id',
+                element:<Payment></Payment>,
+            loader:({params})=> fetch(`http://localhost:5000/booking/${params.id}`)
+            
+
+            }
+              ///dashboard/myproduct
 
         ]
-
     },
-   
-    {
+    // {
+    //     path:'/admindeshboard',
+    //     element:<AdminDeshBoard></AdminDeshBoard>
+
+    // },
+   {
         path:'*',
         element: <div>
             <h2 className="text-4xl text-red-700"> 404 not found</h2>

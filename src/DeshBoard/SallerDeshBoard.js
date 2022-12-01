@@ -59,7 +59,8 @@ const SallerDeshBoard = () => {
                         usetime,
                         time,
                         categoryId,
-                        img: imageData.data.url
+                        img: imageData.data.url,
+                        email:user.email
             
                     }
                     console.log(products)

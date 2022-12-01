@@ -21,8 +21,9 @@ const NavBar = () => {
       
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
+        <li><Link to='/dashboard'> DeshBoard </Link></li>
        
-        {
+        {/* {
          type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
         }
         {
@@ -30,7 +31,7 @@ const NavBar = () => {
         }
        {
          type.role==='buyer'  && <li><Link to="/dashboard">Deshboard</Link></li>
-        }
+        } */}
          {
           user && user.uid? <>
       
@@ -54,7 +55,8 @@ const NavBar = () => {
     <ul className="menu menu-horizontal p-0">
     <li><Link to='/'>Home</Link></li>
     <li><Link to='/blog'>Blog</Link></li>
-       {
+   
+       {/* {
          type.role==='admin' && <li><Link to='/admindeshboard'> DeshBoard </Link></li>
         }
 
@@ -63,9 +65,10 @@ const NavBar = () => {
         }
         {
          type.role==='buyer' && <li><Link to="/dashboard">Dashboard</Link></li>
-        }
+        } */}
          {
           user && user.uid? <>
+           <li><Link to='/dashboard'> DeshBoard </Link></li>
       
          
           <button onClick={logOut}>LogOut</button>

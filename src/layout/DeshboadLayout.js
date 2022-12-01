@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
 import NavBar from '../NavBar/NavBar';
 
 const DeshboadLayout = () => {
   const { user } = useContext(AuthContext)
+  const [type] = useAdmin(user?.email)
   // const []=
-  useAdmin(user?.email)
+
   return (
     <div>
       <NavBar></NavBar>
@@ -22,10 +23,27 @@ const DeshboadLayout = () => {
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
             {/* <li>hi</li> */}
             {
-              // isAdmin && <>
-              // <li>all user</li>
-              // </>
+               type.role==='buyer' && <li><Link to='/dashboard/user'> My Orders</Link></li>
+              
             }
+           
+            {
+               type.role==='admin' && <li><Link to='/dashboard/admindeshboard'> All Users</Link></li>
+              
+            }
+             {
+               type.role==='saller' && <>
+               <li><Link to='/dashboard/addproduct'> Add Product</Link></li>
+               <li><Link to='/dashboard/myproduct'> My Product</Link></li>
+               
+               
+               </> 
+              
+            }
+          
+
+
+             
 
           </ul>
 

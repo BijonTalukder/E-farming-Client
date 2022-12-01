@@ -1,6 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
+import BookingModal from '../Pages/Home/Categories/BookingModal/BookingModal';
 
 const DeshBoard = () => {
     const [orders, setOrder] = useState([])
@@ -25,6 +27,7 @@ const DeshBoard = () => {
                             <th>Name</th>
                             <th>Item Name</th>
                             <th>Price</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,6 +38,14 @@ const DeshBoard = () => {
                             <td>{order.name}</td>
                             <td>{order.itemName}</td>
                             <td>{order.price}</td>
+                            {
+                                order.price && !order.paid && <Link to={`/payment/${order._id}`}><button className='btn btn-primary btn-sm'>Pay</button></Link>
+                            }
+                            {
+                          order.price && !order.paid && <Link to={`/payment/${order._id}`}><span className='text-success'>Paid</span></Link>
+
+
+                            }
                         </tr>
 )
                        }

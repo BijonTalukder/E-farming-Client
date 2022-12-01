@@ -96,22 +96,22 @@ const Categories = () => {
 
     ]
     return (
-        <div className='grid gap-3  lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
+        <div className='grid gap-8   lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
             
 
-            <div className=' px-12 py-5 rounded-sm bg-lime-700'>
+           
                 
-            <Link to='/category/1'>OPPO</Link>
+            <Link className=' px-12 py-5 rounded-sm bg-lime-700'   to='/category/1'>OPPO</Link>
 
-            </div>
-            <div className=' px-12 py-5 rounded-sm bg-lime-700'>
-            <Link to='/category/2'>VIVO</Link>
+           
+           
+            <Link  className=' px-12 py-5 rounded-sm bg-lime-700' to='/category/2'>VIVO</Link>
 
-            </div>
-            <div className=' px-12 py-5 rounded-sm bg-lime-700'>
-            <Link to='/category/3'>HUAWEI</Link>
+           
+            <Link to='/category/3' className=' px-12 py-5 rounded-sm bg-lime-700'>
+           HUAWEI
 
-            </div>
+            </Link>
             
         </div>
     );

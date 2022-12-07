@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import NavBar from '../NavBar/NavBar';
 
@@ -75,7 +76,10 @@ const SallerDeshBoard = () => {
             
                     })
                         .then(res => res.json())
-                        .then(data => console.log(data))
+                .then(data => {
+                    console.log(data)
+                toast.success('Product added !!')
+                })
                 }
             })
 
@@ -121,8 +125,8 @@ const SallerDeshBoard = () => {
 
     return (
         <div className='flex flex-col align-middle items-center justify-center '>
-            <NavBar></NavBar>
-            <h2>added your salleing product information</h2>
+            {/* <NavBar></NavBar> */}
+            <h2 className='text-2xl text-cyan-700 my-5'>added your salleing product information</h2>
 
             <form className='grid grid-cols-1 gap-7  border p-9 justify-center' onSubmit={handleProduct}>
                 <input type="text" name='sallerName' defaultValue={user.displayName} placeholder="saller Name" className="input input-bordered w-full max-w-xs" />

@@ -13,16 +13,16 @@ const DeshboadLayout = () => {
     <div>
       <NavBar></NavBar>
       <div className="drawer drawer-mobile">
-        <input id="DeshBoard-drawer-2" type="checkbox" className="drawer-toggle" />
-        <div className="drawer-content ">
-          <Outlet></Outlet>
+  <input id="DeshBoard-drawer-2" type="checkbox" className="drawer-toggle" />
+  <div className="drawer-content ">
+    <Outlet></Outlet>
+  
+  </div> 
+  <div className="drawer-side">
+    <label htmlFor="DeshBoard-drawer-2" className="drawer-overlay"></label> 
+    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-        </div>
-        <div className="drawer-side ">
-          <label htmlFor="DeshBoard-drawer-2"  className="drawer-overlay"></label>
-          <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-            {/* <li>hi</li> */}
-            {
+      {
                type.role==='buyer'  && <li><Link to='/dashboard/user'> My Orders</Link></li>
               
             }
@@ -40,15 +40,10 @@ const DeshboadLayout = () => {
                </> 
               
             }
-          
-
-
-             
-
-          </ul>
-
-        </div>
-      </div>
+    </ul>
+  
+  </div>
+</div>
 
     </div>
   );

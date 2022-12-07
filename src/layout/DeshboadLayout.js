@@ -18,12 +18,12 @@ const DeshboadLayout = () => {
           <Outlet></Outlet>
 
         </div>
-        <div className="drawer-side">
-          <label htmlFor="DeshBoard-drawer-2" className="drawer-overlay"></label>
+        <div className="drawer-side ">
+          <label htmlFor="DeshBoard-drawer-2"  className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 bg-base-100 text-base-content">
             {/* <li>hi</li> */}
             {
-               type.role==='buyer' && <li><Link to='/dashboard/user'> My Orders</Link></li>
+               type.role==='buyer'  && <li><Link to='/dashboard/user'> My Orders</Link></li>
               
             }
            

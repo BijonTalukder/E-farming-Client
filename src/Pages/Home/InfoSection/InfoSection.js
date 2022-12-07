@@ -7,7 +7,7 @@ const InfoSection = () => {
             <div className='w-96'>
                 <h2 className='text-2xl'>Why you choice us?</h2>
                 <p>
-                    You choice us because FlowByte is one of the  best recycle e-commerce platform.We give service after 10 years.every buyer and customer can easily buy and sell product. 
+                    You choice us because Smart Farmer is one of the  best  e-commerce platform.We give service after 10 years.every buyer and customer can easily buy and sell product. 
                 </p>
 
             </div>

@@ -7,8 +7,9 @@ const Categories = () => {
     const categories=[
         {
             "categoryId":1,
-            "name":"oppo Reno5",
-            "img":"https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/athena-reno5/navigation/Reno5-4G-navigation-sliver-v2.png.thumb.webp",
+            "name":"Apple",
+            "catName":"fruite",          
+            "img": "https://image.shutterstock.com/image-photo/red-apple-isolated-on-white-260nw-1727544364.jpg",
             "location":"dhaka",
             "rePrice":"10000",
             "orPrice":"20000",
@@ -18,8 +19,9 @@ const Categories = () => {
         },
         {
             "categoryId":1,
-            "name":'oppo f21s pro',
-            "img":"https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/f21s-pro/navigation/f21s-pro-427_600-gold.png.thumb.webp",
+            "name":"Orange",
+            "catName":"fruite",
+            "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Oranges_-_whole-halved-segment.jpg/1200px-Oranges_-_whole-halved-segment.jpg",
             "location":"dhaka",
             "rePrice":"10000",
             "orPrice":"20000",
@@ -29,8 +31,34 @@ const Categories = () => {
         },
         {
             "categoryId":1,
-            "name":'oppo A54',
-            "img":"https://image.oppo.com/content/dam/oppo/common/mkt/v2-2/a54/navigation/A54-navigation-blue-v2.png.thumb.webp",
+            "name":"Banana",
+            "catName":"fruite",
+            "img": "https://images.immediate.co.uk/production/volatile/sites/30/2017/01/Bananas-218094b-scaled.jpg",
+            "location":"dhaka",
+            "rePrice":"10000",
+            "orPrice":"20000",
+            "usetime":"1",
+            "sallerName":"bijon",
+            "time":""
+        },
+        {
+            "categoryId":1,
+            "name":"watermelon",
+            "catName":"fruite",
+            "img": "https://i0.wp.com/post.healthline.com/wp-content/uploads/2021/11/watermelon-1296x728-header-1.jpg?w=1155&h=1528",
+            "location":"dhaka",
+            "rePrice":"10000",
+            "orPrice":"20000",
+            "usetime":"1",
+            "sallerName":"bijon",
+            "time":""
+        },
+      
+        {
+            "categoryId":2,
+            "name":"fish",
+            "catName":"fish",
+            "img":"https://pngimg.com/uploads/fish/fish_PNG25174.png",
             "location":"dhaka",
             "rePrice":"10000",
             "orPrice":"20000",
@@ -40,30 +68,9 @@ const Categories = () => {
         },
         {
             "categoryId":2,
-            "name":'vivo 25e',
-            "img":"https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1661761546976/bdd3f1e6ffd48c8b8886acd29006565e.png",
-            "location":"dhaka",
-            "rePrice":"10000",
-            "orPrice":"20000",
-            "usetime":"1",
-            "sallerName":"bijon",
-            "time":""
-        },
-        {
-            "categoryId":2,
-            "name":'vivo v25Pro',
-            "img":"https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1661446790437/20e80ffee46fd7b85871f5fc91a8f027.png",
-            "location":"dhaka",
-            "rePrice":"10000",
-            "orPrice":"20000",
-            "usetime":"1",
-            "sallerName":"bijon",
-            "time":""
-        },
-        {
-            "categoryId":2,
-            "name":'vivo Y22',
-            "img":"https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1662085511337/0f096144efecf51f564160be8ae4b07b.png",
+            "name":"",
+            "catName":"fish",
+            "img":"https://pngimg.com/uploads/fish/fish_PNG25172.png",
             "location":"dhaka",
             "rePrice":"10000",
             "orPrice":"20000",
@@ -73,8 +80,9 @@ const Categories = () => {
         },
         {
             "categoryId":3,
-            "name":"HUAWEI Mate 50 Pro",
-            "img":"https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/mate50-pro/img/kv/kv@2x.webp",
+            "name":"moshur dal",
+            "catName":"dal",
+            "img":"https://chaldn.com/_mpimage/moshur-dal-deshi-1-kg?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D47048&q=low&v=1&m=400",
           "location":"dhaka",
            "rePrice":"10000",
            "orPrice":"20000",
@@ -84,8 +92,9 @@ const Categories = () => {
         },
         {
             "categoryId":3,
-            "name":"HUAWEI Y5P",
-            "img":"https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/plp/phones/new-phones/model-banner/img-1009/y5p.png",
+            "catName":"dal",
+            "name":"Mug dal",
+            "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPXDIHEZerTjJsht_yKf5BFyygTEC3Sz7a6Q&usqp=CAU",
            "location":"dhaka",
            "rePrice":"10000",
            "orPrice":"2000",
@@ -101,16 +110,15 @@ const Categories = () => {
 
            
                 
-            <Link className=' px-12 py-5 rounded-sm bg-lime-700'   to='/category/1'>OPPO</Link>
+            <Link className=' px-12 py-5 rounded-sm bg-red-200'   to='/category/1'>OPPO</Link>
 
            
            
             <Link  className=' px-12 py-5 rounded-sm bg-lime-700' to='/category/2'>VIVO</Link>
 
            
-            <Link to='/category/3' className=' px-12 py-5 rounded-sm bg-lime-700'>
-           HUAWEI
-
+            <Link to='/category/3' className=' px-12 py-5 rounded-lg bg-blue-600'>
+            HUAWEI
             </Link>
             
         </div>

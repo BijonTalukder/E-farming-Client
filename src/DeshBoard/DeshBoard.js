@@ -39,10 +39,11 @@ const DeshBoard = () => {
                             <td>{order.itemName}</td>
                             <td>{order.price}</td>
                             {
-                                order.price && !order.paid && <Link to={`/payment/${order._id}`}><button className='btn btn-primary btn-sm'>Pay</button></Link>
+                                // user/payment/:id
+                                order.price && !order.paid && <Link to={`/dashboard/payment/${order._id}`}><button className='btn btn-primary btn-sm'>Pay</button></Link>
                             }
                             {
-                          order.price && !order.paid && <Link to={`/payment/${order._id}`}><span className='text-success'>Paid</span></Link>
+                          order.price && !order.paid && <span className='text-success'>Paid</span>
 
 
                             }

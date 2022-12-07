@@ -28,7 +28,7 @@ export const routes=createBrowserRouter([
             },
             {
                 path:'/category/:id',
-                element:<Category></Category>,
+                element:<PrivateRoute><Category></Category></PrivateRoute> ,
                 loader:({params})=> fetch(`https://used-products-resale-server-bijontalukder.vercel.app/category/${params.id}`)
             },
             {
@@ -46,11 +46,11 @@ export const routes=createBrowserRouter([
         ]
 
     },
-    {
-        path:'/payment/:id',
-        element:<Payment></Payment>
+    // {
+    //     path:'/payment/:id',
+    //     element:<Payment></Payment>
 
-    },
+    // },
     {
         
         path:'/dashboard',
@@ -73,12 +73,13 @@ export const routes=createBrowserRouter([
               element:<MyProduct></MyProduct>
             },
             {
-                path:'user/payment/:id',
+                path:'/dashboard/payment/:id',
                 element:<Payment></Payment>,
-            loader:({params})=> fetch(`http://localhost:5000/booking/${params.id}`)
+                loader:({params})=> 
+                    fetch(`https://used-products-resale-server-bijontalukder.vercel.app/booking/${params.id}`)}
             
 
-            }
+    
               ///dashboard/myproduct
 
         ]

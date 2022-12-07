@@ -6,7 +6,7 @@ const MyProduct = () => {
     const [u, setU] = useState([])
     useEffect(() => {
 
-        fetch(`http://localhost:5000/category?email=${user?.email}`)
+        fetch(`https://used-products-resale-server-bijontalukder.vercel.app/category?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setU(data))
 
@@ -20,7 +20,7 @@ const MyProduct = () => {
     <tr>
         <th>Number</th>
         <th>Name</th>
-        <th>Item Name</th>
+        <th>Category Name</th>
         <th>Price</th>
         
     </tr>

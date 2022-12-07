@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () => {
     return (
        
-        <footer className="footer p-10 my-8 bg-neutral text-neutral-content">
+        <footer className="footer p-10 mt-8 bg-neutral text-neutral-content">
         <div>
           {/* <img className='h-[50px]' src='https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Book-icon-bible.png/800px-Book-icon-bible.png' alt=''  /> */}
           <p>Copyright © 2022 - All right reserved by FlowByte</p>

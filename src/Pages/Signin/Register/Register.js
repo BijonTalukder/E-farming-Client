@@ -1,5 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
@@ -29,6 +30,7 @@ const Register = () => {
                 role
             }
             form.reset()
+            toast.success('Registation Success!!')
             
 
         

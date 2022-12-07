@@ -40,7 +40,7 @@ const SallerDeshBoard = () => {
                     const time = date;
                     console.log(imageurl)
                     console.log(imgurl.data?.url)
-                    if (name.includes('oppo')) {
+                    if (name.includes('ooppo')) {
                         categoryId = 1;
             
                     }
@@ -54,9 +54,11 @@ const SallerDeshBoard = () => {
                     const products = {
                         sallerName,
                         name,
-                        rePrice,
+                       
                         orPrice,
+                        rePrice,
                         usetime,
+                     
                         time,
                         categoryId,
                         img: imageData.data.url,

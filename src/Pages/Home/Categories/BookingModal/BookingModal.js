@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast'
 
-const BookingModal = ({booked}) => {
+const BookingModal = () => {
+  
   let today = new Date();
   const  date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
 
 
-  const {user}= useContext(AuthContext)
+  const {user,booked,setBooked}= useContext(AuthContext)
   const handleBooking=event=>{
     event.preventDefault()
     const form=event.target;
@@ -34,6 +36,10 @@ const BookingModal = ({booked}) => {
     })
     .then(res=>res.json())
     .then(data=>{
+      if(data.acknowledged){
+        toast.success('Booking successfull')
+        setBooked(null)
+      }
       form.reset()
     })
 
@@ -48,7 +54,8 @@ const BookingModal = ({booked}) => {
         <div className="modal-box relative">
           <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
           <h3 className="text-lg font-bold">Congratulations</h3>
-          <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3'>
+          <div className='w-full'>
+          <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mx-auto'>
             <input type="text" disabled placeholder="Type here" value={booked.name} className="input input-bordered w-full max-w-xs" />
            
             <input name='name' disabled defaultValue={user?.displayName} type="text" placeholder="Name" className="input input-bordered w-full max-w-xs" />
@@ -57,8 +64,9 @@ const BookingModal = ({booked}) => {
             <input type="text" name='price' defaultValue={booked.rePrice} placeholder="Price" className="input input-bordered w-full max-w-xs" />
 
             <input type="text" name='location' placeholder="location" className="input input-bordered w-full max-w-xs" />
-            <button className="input input-bordered w-full max-w-sm" type='submit'>Submit</button>
+            <button className="input input-bordered w-full max-w-sm btn-success" type='submit'>Submit</button>
           </form>
+          </div>
         </div>
       </div>
 
